@@ -7,7 +7,7 @@ MLOPS_Project/
 │   └── workflows/
 │       └── ci.yml
 ├── data/
-│   └── dataset.csv
+│   └── diabetes.csv
 ├── models/
 │   └── best_model.pkl
 ├── src/
@@ -24,7 +24,8 @@ MLOPS_Project/
 ├── dvc.yaml
 ├── .dvc/
 │   └── config
-├── dataset.csv.dvc
+├── diabetes.csv.dvc
 ├── .gitignore
 └── README.md
+
 
