@@ -1,0 +1,5 @@
+outs:
+- md5: ec05319f4d316cbfac1e553ae61895a5
+  size: 88796
+  isexec: true
+  path: diabetes.csv
