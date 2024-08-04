@@ -1,11 +1,11 @@
 test pull/push check
 
-Project tree
+# Project tree
 
 MLOPS_Project/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml
+│       └── main.yml
 ├── data/
 │   └── diabetes.csv
 ├── models/
@@ -29,3 +29,5 @@ MLOPS_Project/
 └── README.md
 
 
+# Install Requirements
+pip3 install requirements.txt
