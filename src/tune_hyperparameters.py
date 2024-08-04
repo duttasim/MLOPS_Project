@@ -18,8 +18,7 @@ def objective(trial):
     model = RandomForestRegressor(
         n_estimators=n_estimators, max_depth=max_depth, random_state=42)
     mse = cross_val_score(
-        model, X_train, y_train, cv=3, 
-        scoring='neg_mean_squared_error').mean()
+        model, X_train, y_train, cv=3, scoring='neg_mean_squared_error').mean()
     return -mse
 
 
@@ -28,7 +27,7 @@ if __name__ == "__main__":
     study.optimize(objective, n_trials=50)
 
     print("Best parameters: ", study.best_params)
-    
+
     # Save the best model
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42)
