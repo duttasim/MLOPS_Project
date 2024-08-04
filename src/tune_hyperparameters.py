@@ -8,7 +8,8 @@ from utils import load_data, save_model
 print("MLFlow Version = "+mlflow.__version__)
 
 # Load the dataset
-X, y = load_data('data/diabetes.csv')
+# X, y = load_data('data/diabetes.csv')
+X, y = load_data('data_git/diabetes.csv')
 
 def objective(trial):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
