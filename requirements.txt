@@ -5,3 +5,9 @@ pandas
 scikit-learn
 pytest
 flake8
+flask
+mlflow
+dvc
+optuna
+joblib
+dvc
