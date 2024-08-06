@@ -68,7 +68,7 @@ jobs:
       run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 
     - name: Build Docker image
-      run: docker build -t mlops17 .
+      run: docker build -t mlops_project .
 
     - name: Tag Docker image
       env:
