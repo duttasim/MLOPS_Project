@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY src/ src/
+COPY models/ models/
 
-CMD ["python", "app.py"]
-
+CMD ["python", "src/app.py"]

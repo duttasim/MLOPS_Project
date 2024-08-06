@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import joblib
 import numpy as np
 
-# Initialize Flask application
+# Initialize Flask applications
 app = Flask(__name__)
 
 knn_model = joblib.load('./knn_model.joblib')  # Adjust the path if needed
