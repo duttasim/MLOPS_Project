@@ -49,17 +49,31 @@ jobs:
       run: python src/tune_hyperparameters.py
 
   deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Build Docker image
-      run: docker build -t mlops_project .
-    - name: Run Docker container
-      run: docker run -d -p 5000:5000 mlops_project
+    - name: Debug Secrets
+        run: |
+          echo "DOCKER_USERNAME length: ${#DOCKER_USERNAME}"
+          echo "DOCKER_PASSWORD length: ${#DOCKER_PASSWORD}"
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Log in to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t mlops17 .
+
+      - name: Tag Docker image
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: docker tag mlops17:latest ${DOCKER_USERNAME}/mlops17:latest
+
+      - name: Push Docker image
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: docker push ${DOCKER_USERNAME}/mlops17:latest
+  
+      
