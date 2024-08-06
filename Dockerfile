@@ -1,11 +1,10 @@
 FROM python:3.8-slim
 
-WORKDIR /app
+WORKDIR /src
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY src/ src/
-COPY models/ models/
+COPY . .
 
-CMD ["python", "src/app.py"]
+CMD ["python", "app.py"]
