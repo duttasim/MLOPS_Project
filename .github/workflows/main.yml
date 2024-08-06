@@ -73,9 +73,9 @@ jobs:
     - name: Tag Docker image
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      run: docker tag mlops17:latest ${DOCKER_USERNAME}/mlops17:latest
+      run: docker tag mlops_project:latest ${DOCKER_USERNAME}/mlops_project:latest
 
     - name: Push Docker image
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      run: docker push ${DOCKER_USERNAME}/mlops17:latest
+      run: docker push ${DOCKER_USERNAME}/mlops_project:latest
